@@ -12,6 +12,7 @@
  原文：[How to get started with WebRTC and iOS without wasting 10 hours of your life](http://ninjanetic.com/how-to-get-started-with-webrtc-and-ios-without-wasting-10-hours-of-your-life/) 
  译文：[《WebRTC的iOS框架编译》]( http://io.diveinedu.com/2015/02/02/第五章-WebRTC的iOS框架编译.html ) 
 
+
 这篇教程里的有一些命令是错误的：
 
  ```Objective-C
@@ -56,10 +57,18 @@ target_os = ['ios']
 
  参考： [The chromium / webRTC build system](http://webrtcbydralex.com/index.php/2015/07/18/the-chromium-webrtc-build-system/) 
  
-终端翻墙问题：
+ 另外：
+ 
+ 
+ ```Objective-C
+echo "export PATH=$PWD/depot_tools:$PATH" > $HOME/.bash_profile
+ ```
 
-一般是通过环境变量翻墙：
+这个命令注意执行时一定要在 `webrtc_build/webrtc` 目录下执行。
+ 
+**终端翻墙问题**：
 
+一般我们是通过环境变量翻墙：
 
  ```Objective-C
 export HTTP_PROXY=xxxxx
@@ -112,9 +121,24 @@ echo $HTTPS_PROXY
 要使用 `unset` 命令
 
  ```Objective-C
-unset http_proxy
+ unset HTTPS_PROXY
+ unset http_proxy
  ```
  
+使用下面命令验证下：
+
+ ```Objective-C
+echo $HTTPS_PROXY
+ ```
+
+如果什么都不打印，表示删除成功，如果有打印说明环境变量还在。
+
+用同样的方法验证：
+
+ ```Objective-C
+http_proxy
+ ```
+
  `unset` 后，就可以重新借助 `.boto` 翻墙下载了:
  
  ```Objective-C
@@ -135,8 +159,7 @@ gclient runhooks
  ```Objective-C
 gn gen out/Release-universal --args='target_os="ios" target_cpu="x64" additional_target_cpus=["arm", "arm64", "x86"] is_component_build=false is_debug=false ios_enable_code_signing=false'
  ```
- 
- 
+
  ```Objective-C
 Done. Made 1181 targets from 105 files in 6942ms
  ```
@@ -166,12 +189,16 @@ OSError: [Errno 13] Permission denied
 chmod +x src/buildtools/mac/gn
  ```
 
- [《WebRTC-编译以及运行IOS的Demo》]( http://www.jianshu.com/p/1b4c79b45055 ) 
- 
- 
- 编译后的 Framework 目录结构如下：
- 
- 
+其中下面的编译framework的步骤可能会花费很长时间（我的是2010款的MBP，40多分钟）：
+
+ ```Objective-C
+ninja -C out/Release-universal rtc_sdk_framework_objc
+ ```
+
+也可以参考下这篇编译的文章：[《WebRTC-编译以及运行IOS的Demo》]( http://www.jianshu.com/p/1b4c79b45055 ) 
+
+编译后的 Framework 目录结构如下：
+
  ```Objective-C
  
 └── Headers
