@@ -6,9 +6,9 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/ChenYilong/WebRTC"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { "ChenYilong" => "luohanchenyilong@163.com" }
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.frameworks = 'AVFoundation', 'AudioToolbox', 'CoreGraphics', 'CoreMedia', 'GLKit', 'UIKit', 'VideoToolbox'
-  s.source       = { :git => "https://github.com/ChenYilong/WebRTC", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com/ChenYilong/WebRTC.git", :tag => s.version.to_s }
   s.vendored_frameworks = 'WebRTC/WebRTC.framework'
   s.requires_arc = true
   s.license      = {
