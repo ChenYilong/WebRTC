@@ -15,7 +15,7 @@
  
  API划分:三个JS接口 
 
- 1. MediaStream (getUserMedia)
+ 1. MediaStream (又叫getUserMedia)
  2. RTCPeerConnection (C++)
  3. RTCDataChannel
  
@@ -26,11 +26,13 @@
  - 可包含多个音视频记录
  - 通过 `navigator.getUserMedia()` 获取
  
-![](http://ww3.sinaimg.cn/large/006y8mN6jw1f8xfosnoasj30k50a3jse.jpg)
+![](http://ww3.sinaimg.cn/large/006tNbRwjw1f9shy24izqj314q0n1wgp.jpg) 
+
+(参考：https://w3c.github.io/mediacapture-main/archives/20140909/getusermedia.html )
 
 `getUserMedia`:
   
-![](http://ww1.sinaimg.cn/large/006y8mN6jw1f8xfucza4cj30oe0cxadp.jpg)
+![](http://ww1.sinaimg.cn/large/006tNbRwjw1f9sxw9i629j30qz08bgot.jpg)
 
 其中的 `constraints` 介绍下：
 
@@ -45,9 +47,17 @@
  5. 带宽管理（手机可以调得质量差点、PC可以质量高）
  6. 。。。
   
- 编码采用的不是h264，而是VP8， 
- 
-![](http://ww1.sinaimg.cn/large/006y8mN6jw1f8u8lor8pbj30p70h8gpu.jpg)
+ （编码采用的最初不是采用的h264，而是VP8， 最新版本已经支持）
+
+
+#### WebRTC 架构
+
+![](http://ww4.sinaimg.cn/large/006tNbRwjw1f9sigj9rxpj30kg0ddtag.jpg)
+
+#### RTCPeerConnection 示例
+
+![](http://ww2.sinaimg.cn/large/006tNbRwjw1f9sio1h719j30iy0d2adm.jpg)
+
 
 #### TURN 做中转的
  
@@ -86,7 +96,7 @@ Client --UDP--》 Server （获知外网 IP 地址，端口号）
 
 ![](http://ww2.sinaimg.cn/large/006y8mN6jw1f8ul107kkqj30m40dgjry.jpg)
 
-几个服务辨析：
+几个服务的辨析：
  
  - STUN (Session Traversal Utilities for NAT) 只能UDP，告诉我暴露在广域网的地址IP port ，我通过映射的广域网地址进行P2P数据通信。
  - TURN( Traversal Using Relays around for NAT)UDP或TCP， 打洞失败后，提供服务器中转数据，通话双方数据都通过服务器，占服务器带宽较大 - 为了确保通话在绝大多数环境下可以正常工作。跨网只能用服务器中转（测试发现的） ，使用TURN这种情况在视频通话中占10%
@@ -117,7 +127,8 @@ NAT路由器
 
 #### TURN( Traversal Using Relays around for NAT)
 
-UDP或TCP， 打洞失败后，提供服务器中转数据，通话双方数据都通过服务器，占服务器带宽较大 - 为了确保通话在绝大多数环境下可以正常工作。跨网只能用服务器中转（测试发现的） ，使用TURN这种情况在视频通话中占10%
+ - UDP或TCP， 打洞失败后，提供服务器中转数据，通话双方数据都通过服务器，占服务器带宽较大 
+- 为了确保通话在绝大多数环境下可以正常工作。跨网只能用服务器中转（测试发现的） ，使用TURN这种情况在视频通话中占10%
 
 ![](http://ww4.sinaimg.cn/large/006y8mN6jw1f8xf801vnkj30jy0d1myb.jpg)
 
