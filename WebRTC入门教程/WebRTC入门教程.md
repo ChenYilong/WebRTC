@@ -1,8 +1,33 @@
 ![enter image description here](http://us.agencies.newquest.fr/wp-content/uploads/sites/2/2015/02/WebRTC-1200x630.png)
 
 
- - 免插件的即时通讯技术
+## 简介
+ 
+ 全称是： Web browser Real Time Communication
+ 
+特点如下：
+
+ - 是基于浏览器的实时音视频（数据）通信技术
+ - 免插件
  - 开源
+ - 已被W3C纳入HTML5标准
+ - 跨平台，跨浏览器，跨移动应用
+ - Mac OSX、Windows、iOS、Android、Linux
+
+
+### Google的推动
+
+最初是谷歌2010年以6820万美元收购Global IP Solutions(GIPS)公司而获得的一项技术，它使得Web中的实时通讯成为可能，是一项能够在浏览器内部进行实时音频和视频通信的技术
+
+当浏览器实现对应音视频组件后，开发者可以容易地通过JS API 实现他们自己的RTC web 应用
+
+现在已经被推为W3C的标准，名称为WebRTC
+
+已经支持|不支持
+-------------|-------------
+Chrome，FireFox，Opera，微软edge | Safari，IE
+
+
  
 
 ## 谁在使用WebRTC技术
@@ -13,7 +38,32 @@
  - VoIP电话：KC网络电话；
  - 在线教育：猿题库
  
-![](http://ww3.sinaimg.cn/large/006tNbRwjw1f9xkjpnqimj30ak07xgn6.jpg)
+QQ | 多年前开始，腾讯QQ视频聊天室购买的国外Global IP（GIPS）公司技术
+-------------|-------------
+![](http://ww3.sinaimg.cn/large/006tNbRwjw1f9xkjpnqimj30ak07xgn6.jpg)|![](http://ww4.sinaimg.cn/large/006tNc79jw1fabvg9pensj30ex0c2q4o.jpg)
+
+## 应用场景
+
+![](http://ww2.sinaimg.cn/large/006tNc79jw1fabvj3yz40j30k00f03z3.jpg)
+
+![](http://ww1.sinaimg.cn/large/006tNc79jw1fabvj3vnaqj30k00f0dgk.jpg)
+
+![](http://ww2.sinaimg.cn/large/006tNc79jw1fabvj47y42j30k00f0aav.jpg)
+
+![](http://ww2.sinaimg.cn/large/006tNc79jw1fabvj4370sj30k00f0aao.jpg)
+
+![](http://ww4.sinaimg.cn/large/006tNc79jw1fabvj4an10j30k00f0dgh.jpg)
+
+![](http://ww4.sinaimg.cn/large/006tNc79jw1fabvj47ghrj30k00f0t9l.jpg)
+
+
+## 目前支持的平台
+
+ - Chrome
+ - Chrome for Android
+ - Firefox
+ - Opera
+ - Native C++、Java and Objective-C bindings
 
 ## WebRTC相关API介绍
 
@@ -152,9 +202,6 @@ RTC_EXPORT
  （编码采用的最初不是采用的h264，而是VP8， 最新版本已经支持）
 
 
-#### WebRTC 架构
-
-![](http://ww4.sinaimg.cn/large/006tNbRwjw1f9sigj9rxpj30kg0ddtag.jpg)
 
 #### RTCPeerConnection 示例
 
@@ -255,6 +302,12 @@ function gotRemoteStream(e) {
 
  ```
 
+
+#### WebRTC 架构
+
+![](http://ww4.sinaimg.cn/large/006tNbRwjw1f9sigj9rxpj30kg0ddtag.jpg)
+
+
 #### TURN 做中转的
  
 比如：如果两个人私有路由器都是192.168开头 ，会被认为是同一个网络下。。就需要这个
@@ -276,6 +329,12 @@ function gotRemoteStream(e) {
 
 ![jsep](http://ww2.sinaimg.cn/large/006tNbRwjw1faamsi8wvsj30n60egwg6.jpg)
 
+
+手摇电话 呼叫总部| 接线员起到的就是类似"信令服务"的作用
+--------------------------|-------------
+![](http://ww3.sinaimg.cn/large/006tNc79jw1fabubpeyxjj30kt0ik75a.jpg)  ![](http://ww2.sinaimg.cn/large/006tNc79jw1fabu8y3manj30eq0b10sv.jpg) | ![](http://ww4.sinaimg.cn/large/006tNc79jw1fabuc0q60xj30la0ergn6.jpg)
+
+
 #### 打洞服务器（防火墙穿越服务器）
 
  - 在有防火墙和地址转换时P2P需要UDP打洞：
@@ -293,6 +352,12 @@ Client --UDP--》 Server （获知外网 IP 地址，端口号）
 
  - IPv4用完
  - 私有地址一致，用了同一网段，不能用内网地址，需要用外网地址。
+
+
+
+为什么需要外网地址而非内网地址| 匿名聊天中，你知道你是在和一个昵称（内网地址）叫张三的人聊天，其实你是在和一个UserId（外网地址）聊天
+-------------|-------------
+ ![](http://ww3.sinaimg.cn/large/006tNc79jw1fabtf59ig6j30yi1pcdp3.jpg)|![](http://ww4.sinaimg.cn/large/006tNc79jw1fabtf63jqpj30yi1pcten.jpg) 
 
 理想中的
 
