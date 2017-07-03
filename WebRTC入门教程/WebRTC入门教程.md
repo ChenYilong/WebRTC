@@ -25,7 +25,7 @@
 
 已经支持|不支持
 -------------|-------------
-Chrome，FireFox，Opera，微软edge | Safari，IE
+Chrome，FireFox，Opera，微软edge，Safari | IE
 
 
  
