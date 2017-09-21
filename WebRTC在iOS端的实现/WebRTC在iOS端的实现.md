@@ -1,7 +1,7 @@
 
 ## 前言
 
-的iOS 11  WebKit 中支持了 WebRTC 相关的接口：
+iOS 11 的 WebKit 中支持了 WebRTC 相关的接口：
 
 ![](https://ws4.sinaimg.cn/large/006tNc79gy1fjp0ig1bgij31800pg7bu.jpg)
 
@@ -17,7 +17,6 @@ Reference:
   - [《苹果终于入伙 WebRTC，新一代移动 Web 应用爆发路上还有哪些坑？》]( http://geek.csdn.net/news/detail/201894 ) 
   - [**Hold On with the Apple WebRTC in iOS Party**]( https://thenewdialtone.com/hold-apple-webrtc-ios-party/ )
   - [Safari Technology Preview](https://developer.apple.com/safari/download/) 
-  - 原则上UIWebView 与 WKWebView 也是基于 WebKit 
   - [What's New in Safari](https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Safari_11_0/Safari_11_0.html) 
 
 
