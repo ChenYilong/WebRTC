@@ -1,3 +1,28 @@
+
+## 前言
+
+的iOS 11  WebKit 中支持了 WebRTC 相关的接口：
+
+![](https://ws4.sinaimg.cn/large/006tNc79gy1fjp0ig1bgij31800pg7bu.jpg)
+
+不过 WKWebView 还没有支持 `getUserMedia` 无法获得 `MediaStream` ，无法传输音视频流，所以 APP 嵌套的 WebView 还无法使用 WebRTC，必须得用 Safrai APP 才可以。APPLE 回复说是会支持，估计得等几个版本了，可以持续关注后续 WKWebView 更新。
+
+一旦 WKWebView 支持 `MediaStream (getUserMedia)`，之后朋友圈里面的 Web 会有更多可能性，比如直接音视频的合成，还有实时视频通信、WebAR 的东西进行传播。借助小程序的入口，想象空间还是比较多的。
+
+
+Reference:
+
+  - [《WebRTC入门教程》]( https://github.com/ChenYilong/WebRTC/blob/master/WebRTC入门教程/WebRTC入门教程.md) 
+  - [《WebRTC在iOS端的实现》]( https://github.com/ChenYilong/WebRTC/blob/master/WebRTC在iOS端的实现/WebRTC在iOS端的实现.md ) 
+  - [《苹果终于入伙 WebRTC，新一代移动 Web 应用爆发路上还有哪些坑？》]( http://geek.csdn.net/news/detail/201894 ) 
+  - [**Hold On with the Apple WebRTC in iOS Party**]( https://thenewdialtone.com/hold-apple-webrtc-ios-party/ )
+  - [Safari Technology Preview](https://developer.apple.com/safari/download/) 
+  - 原则上UIWebView 与 WKWebView 也是基于 WebKit 
+  - [What's New in Safari](https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Safari_11_0/Safari_11_0.html) 
+
+
+APP 中使用 WebRTC 技术，目前还只能是使用 Native 方案，下面来进行下介绍：
+
 ## WebRTC的iOS框架编译
 
  1. 下载源码
